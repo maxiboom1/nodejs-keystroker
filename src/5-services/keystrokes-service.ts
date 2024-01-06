@@ -15,7 +15,8 @@ const focusWindow = (title: string) => {
 
 // Function to send a keystroke
 const sendKeystroke = (key: string) => {
-  robot.keyTap(key);
+  //robot.keyTap(key);
+  robot.keyTap('tab', ['control', 'shift']);
 };
 
 // Main function to execute your service logic, now with parameters

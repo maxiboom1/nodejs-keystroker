@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/refresh", async (request: Request, response: Response, next: NextFunction) => {
     try {
-        keystrokes("Anveks","f5");
+        keystrokes("Google Chrome","f5");
         response.sendStatus(200);
     }
     catch(err: any) {

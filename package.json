@@ -12,7 +12,8 @@
         "@types/cors": "^2.8.13",
         "@types/express": "^4.17.17",
         "@types/mysql": "^2.15.21",
-        "@types/node": "^18.19.4"
+        "@types/node": "^18.19.4",
+        "@types/serialport": "^8.0.5"
     },
     "dependencies": {
         "cors": "^2.8.5",
@@ -20,6 +21,7 @@
         "joi": "^17.8.3",
         "mysql": "^2.18.1",
         "node-window-manager": "^2.2.4",
-        "robotjs": "^0.6.0"
+        "robotjs": "^0.6.0",
+        "serialport": "^12.0.0"
     }
 }

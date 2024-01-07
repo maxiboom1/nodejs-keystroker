@@ -8,7 +8,7 @@ import listenSerial from "./5-services/serial-service";
 
 const server = express();
 
-server.use(cors());
+
 server.use(express.json());
 server.use("/api", dataRoutes);
 server.use(routeNotFound);

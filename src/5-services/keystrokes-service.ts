@@ -1,5 +1,6 @@
 import { windowManager } from 'node-window-manager';
 import * as robot from 'robotjs';
+import KeysModel from '../2-models/keys-model';
 
 // Function to focus a window by its title
 const focusWindow = (title: string) => {
@@ -14,18 +15,18 @@ const focusWindow = (title: string) => {
 };
 
 // Function to send a keystroke
-const sendKeystroke = (key: string) => {
-  robot.keyTap('tab', ['control', 'shift']);
+const sendKeystroke = (keys:KeysModel["keyTap"]) => {
+  robot.keyTap(keys.key, keys.modifiers);
 };
 
-// Main function to execute your service logic, now with parameters
-const executeService = (windowTitle: string, keyToSend: string) => {
-  const window = focusWindow(windowTitle);
+
+const executeService = (keys: KeysModel) => {
+  const window = focusWindow(keys.app);
   if (window) {
-    sendKeystroke(keyToSend);
-    console.log(`Keystroke '${keyToSend}' sent to window '${windowTitle}'`);
+    sendKeystroke(keys.keyTap);
+    console.log(`Keystroke '${keys.keyTap.key +' '+ keys.keyTap.modifiers}' sent to window '${keys.app}'`);
   } else {
-    console.log(`Window '${windowTitle}' not found.`);
+    console.log(`Window '${keys.app}' not found.`);
   }
 };
 

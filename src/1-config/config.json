@@ -1,4 +1,74 @@
 {
-    "port":4000,
-    "serialPort": "COM5"
+  "port": 4000,
+  "serialPort": "COM4",
+  "gpi1": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  },
+  "gpi2": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  },
+  "gpi3": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  },
+  "gpi4": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  },
+  "gpi5": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  },
+  "gpi6": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  },
+  "gpi7": {
+    "app": "",
+    "keyTap": {
+      "key": "",
+      "modifiers": [
+        "",
+        ""
+      ]
+    }
+  }
 }

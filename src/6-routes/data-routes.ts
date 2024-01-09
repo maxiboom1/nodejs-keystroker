@@ -1,11 +1,10 @@
 import express, { Request, Response, NextFunction } from "express";
-import sendKeys from "../5-services/keystrokes-service";
+import configService from "../5-services/config-service";
 
 const router = express.Router();
 
 router.get("/refresh", async (request: Request, response: Response, next: NextFunction) => {
     try {
-        //sendKeys("Google Chrome",{key:"f5",modifiers:[]});
         response.sendStatus(200);
     }
     catch(err: any) {
@@ -13,5 +12,24 @@ router.get("/refresh", async (request: Request, response: Response, next: NextFu
     }
 });
 
+router.post("/set-config", async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        await configService.setConfig(request.body);
+        response.json({status:"success"});
+    }
+    catch(err: any) {
+        next(err);
+    }
+});
+
+router.post("/set-comport", async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        await configService.setComPort(request.body.port); // As front send {port: "COM{X}"}
+        response.json({status:"success"});
+    }
+    catch(err: any) {
+        next(err);
+    }
+});
 
 export default router;

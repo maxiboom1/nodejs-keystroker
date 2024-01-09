@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(182, 182, 182);
+}
+
+select{
+    height: 31px;
+    width: 190px;
+}
+
+#notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    max-width: 300px;
+    background-color: #559455; /* Green background color */
+    color: #fff; /* Text color */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden{
+    display:none;
+}
+
+#notification.error {
+    background-color: #8d4242; /* Red background color for error */
+}
+th,td{
+    text-align: center;
+}

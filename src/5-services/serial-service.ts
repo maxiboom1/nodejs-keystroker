@@ -21,13 +21,13 @@ function listenSerial(){
 
 function _serialMsgHandler(data:string){
   switch (data.trim()) {
-    case 'GPI 1 FIRED':
-      console.log('GPI 1 FIRED');
+    case 'GPI 1 FIRED!':
+      console.log('GPI 1 FIRED!');
       //sendKeys(appConfig.gpi1.app, appConfig.gpi1.keyTap);
       break;
-    case 'GPI 2 FIRED':
-      console.log('GPI 2 FIRED');
-      //sendKeys(appConfig.gpi2.app, appConfig.gpi2.keyTap);
+    case 'GPI 2 FIRED!':
+      console.log('GPI 2 FIRED!');
+      sendKeys(appConfig.gpi2);
       break;
     default:
       console.log('Unrecognized data:', data);

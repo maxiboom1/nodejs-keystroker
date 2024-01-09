@@ -16,7 +16,17 @@ const focusWindow = (title: string) => {
 
 // Function to send a keystroke
 const sendKeystroke = (keys:KeysModel["keyTap"]) => {
-  robot.keyTap(keys.key, keys.modifiers);
+
+  // Filter out empty strings from modifiers
+  const filteredModifiers = keys.modifiers.filter(modifier => modifier); 
+
+  if (filteredModifiers.length === 0) {
+    robot.keyTap(keys.key);
+  } else if (filteredModifiers.length === 1) {
+    robot.keyTap(keys.key, filteredModifiers[0]);
+  } else {
+    robot.keyTap(keys.key, filteredModifiers);
+  }
 };
 
 

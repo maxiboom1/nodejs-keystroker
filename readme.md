@@ -15,6 +15,7 @@ In general, it can:
  - Serve basic web config page to set arduino and keystroker IP. Those 2 parameters are cached in EEPROM.
 
 ![Config Image](./docs/img/GPIO_Box_config.PNG)
+![Config Image](./docs/img/mockup.jpeg)
 
 
 ### Nodejs application:

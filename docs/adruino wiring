@@ -1,0 +1,9 @@
+W5500 Ethernet Module -> Arduino Nano Wiring:
+- VCC -> 5V
+- GND -> GND
+- SCK -> D13 (SCK)
+- MISO -> D12 (MISO)
+- MOSI -> D11 (MOSI)
+- CS -> D10
+- RST -> D9
+- INT -> D2

@@ -44,9 +44,9 @@
   "gpi5": {
     "app": "",
     "keyTap": {
-      "key": "",
+      "key": "up",
       "modifiers": [
-        "",
+        "command",
         ""
       ]
     }
@@ -54,9 +54,9 @@
   "gpi6": {
     "app": "",
     "keyTap": {
-      "key": "",
+      "key": "left",
       "modifiers": [
-        "",
+        "command",
         ""
       ]
     }

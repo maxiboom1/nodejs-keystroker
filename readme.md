@@ -27,7 +27,7 @@ NThe Node.js application operates on the client side, monitoring both serial and
 
 It utilizes the robotjs library for key transmission and node-window-manager for managing application focus.
 
-Additionally, a web configuration page is provided to map GPIs to specific applications and keystrokes.
+Additionally, a web configuration page is provided to map GPIs to specific applications and keystrokes. Those settings are cached, and keystroker will "remember" them after reset.
 
 For serial connection, the serial COM port can be configured.
 

@@ -124,7 +124,7 @@ void handleClient(EthernetClient& webClient) {
   }
 }
 
-void writeStringToEEPROM(int addrOffset, const String &strToWrite) {
+void readStringFromEEPROM(int addrOffset, const String &strToWrite) {
   byte len = strToWrite.length();
   EEPROM.write(addrOffset, len);
   for (int i = 0; i < len; i++) {

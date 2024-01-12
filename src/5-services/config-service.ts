@@ -1,11 +1,21 @@
 import KeysModel from "../2-models/keys-model";
 import appConfig from "../4-utils/app-config";
 
-async function setConfig(config:KeysModel[]) {
-    // Run over all 7 received gpi data
-    for (const [index, element] of config.entries()) {
+interface ConfigObject {
+    keysData: KeysModel[];
+    comport: string;
+}
+
+async function setConfig(config:ConfigObject) {
+    // Run over all 6 received gpi
+    for (const [index, element] of config.keysData.entries()) {
         appConfig.setGPI(index+1, element);
     }
+    // Set comport
+    if(config.comport.length > 0) {
+        appConfig.setComPort(config.comport);
+    };
+    // Save to config.json
     appConfig.saveToFile();
 }
 

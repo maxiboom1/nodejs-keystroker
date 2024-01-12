@@ -2,11 +2,11 @@
   "port": 4000,
   "serialPort": "COM3",
   "gpi1": {
-    "app": "",
+    "app": "Rust Desk",
     "keyTap": {
-      "key": "",
+      "key": "f4",
       "modifiers": [
-        "",
+        "alt",
         ""
       ]
     }
@@ -32,11 +32,11 @@
     }
   },
   "gpi4": {
-    "app": "",
+    "app": "Google Chrome",
     "keyTap": {
-      "key": "",
+      "key": "f4",
       "modifiers": [
-        "",
+        "alt",
         ""
       ]
     }
@@ -52,16 +52,6 @@
     }
   },
   "gpi6": {
-    "app": "",
-    "keyTap": {
-      "key": "",
-      "modifiers": [
-        "",
-        ""
-      ]
-    }
-  },
-  "gpi7": {
     "app": "",
     "keyTap": {
       "key": "",

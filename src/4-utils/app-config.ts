@@ -59,14 +59,6 @@ class AppConfig {
         }
     };
 
-    public gpi7:KeysModel = {
-        app: "Google Chrome", 
-        keyTap: {
-            key:"tab",
-            modifiers:['control', 'shift']
-        }
-    };
-
 
     // We loading the config.json once onload
     private loadFromFile(filename: string): void {
@@ -87,7 +79,7 @@ class AppConfig {
     }
 
     public setGPI(index: number, newGPIValue: KeysModel): void{
-        if (index >= 1 && index <= 7) {
+        if (index >= 1 && index <= 6) {
             const gpiProperty = `gpi${index}`;
             this[gpiProperty] = newGPIValue;
         } else {

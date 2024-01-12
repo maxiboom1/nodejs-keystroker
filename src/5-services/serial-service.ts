@@ -22,15 +22,27 @@ function listenSerial(){
 function _serialMsgHandler(data:string){
   switch (data.trim()) {
     case 'GPI 1 FIRED!':
-      console.log('GPI 1 FIRED!');
-      //sendKeys(appConfig.gpi1.app, appConfig.gpi1.keyTap);
+      sendKeys(appConfig.gpi1, "gpi1", "Serial");
       break;
     case 'GPI 2 FIRED!':
-      console.log('GPI 2 FIRED!');
-      sendKeys(appConfig.gpi2);
+      sendKeys(appConfig.gpi2, "gpi2", "Serial");
       break;
+    case 'GPI 3 FIRED!':
+      sendKeys(appConfig.gpi3, "gpi3", "Serial");
+      break;
+    case 'GPI 4 FIRED!':
+      sendKeys(appConfig.gpi4, "gpi4", "Serial");
+      break; 
+    case 'GPI 5 FIRED!':
+      sendKeys(appConfig.gpi5, "gpi5", "Serial");
+      break;
+    case 'GPI 6 FIRED!':
+      sendKeys(appConfig.gpi6, "gpi6", "Serial");
+      break;  
+    case 'Connection failed': // This message from arduino about http connection fail. Can be ignored here.
+      break;      
     default:
-      console.log('Unrecognized data:', data);
+      console.log('Serial service: GPIO BOX -', data);
       break;
   }
 }

@@ -34,17 +34,17 @@
   "gpi4": {
     "app": "Google Chrome",
     "keyTap": {
-      "key": "f4",
+      "key": "tab",
       "modifiers": [
-        "alt",
-        ""
+        "control",
+        "shift"
       ]
     }
   },
   "gpi5": {
     "app": "",
     "keyTap": {
-      "key": "up",
+      "key": "",
       "modifiers": [
         "command",
         ""

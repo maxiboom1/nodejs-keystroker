@@ -32,34 +32,40 @@ const sendKeystroke = (keys:KeysModel["keyTap"]) => {
   }
 };
 
-
-const executeService1 = (keys: KeysModel, gpi:String, provider: String) => {
-  console.log(gpi)
-  const window = focusWindow(keys.app);
-  const key = keys.keyTap.key;
-  if(!window){}
-  if (window && key.length > 0) {
-    sendKeystroke(keys.keyTap);
-    console.log(`${provider}: ${gpi} triggered. Keystroke '${keys.keyTap.key +' '+ keys.keyTap.modifiers}' sent to window '${keys.app}'`);
-  } else {
-    console.log(`${provider}: ${gpi} triggered. Window '${keys.app}' not found.`);
-  }
-};
-
 const executeService = (keys: KeysModel, gpi:String, provider: String) => {
-  if(keys.app.length === 0){
-    console.log(`${provider}: ${gpi} triggered. Must specify focus application.`);
-  } else if(keys.keyTap.key.length === 0){
-    console.log(`${provider}: ${gpi} triggered. Key '${keys.keyTap.key}' not allowed.`);
-  } else {
-    const window = focusWindow(keys.app);
-    if (window) {
-      sendKeystroke(keys.keyTap);
-      console.log(`${provider}: ${gpi} triggered. Keystroke '${keys.keyTap.key +' '+ keys.keyTap.modifiers}' sent to window '${keys.app}'`);
-    } else {
-      console.log(`${provider}: ${gpi} triggered. Window '${keys.app}' not found.`);
-    }
+  
+  // Not provided app and key
+  if(keys.app.length === 0 && keys.keyTap.key.length === 0){
+    console.log(`${provider}: ${gpi.toUpperCase()} triggered. Empty gpi data.`);
+    return;
   }
-};
+ 
+  // provided only app
+  if(keys.keyTap.key.length === 0 && keys.app.length > 0){
+    const result = focusWindow(keys.app);
+    if(result) {
+      console.log(`${provider}: ${gpi.toUpperCase()} triggered. Set focus on ${keys.app} app.`);
+    } else {
+      console.log(`${provider}: ${gpi.toUpperCase()} triggered. App named ${keys.app} not found.`);
+    }
+    return;
+  }
 
+  // provided only key, or keys
+  if(keys.keyTap.key.length > 0 && keys.app.length === 0){
+    console.log(`${provider}: ${gpi.toUpperCase()} triggered. Sending ${keys.keyTap.key} (No application specified).`);
+    sendKeystroke(keys.keyTap);
+    return;
+  }
+
+
+  const window = focusWindow(keys.app);
+  if (window) {
+    sendKeystroke(keys.keyTap);
+    console.log(`${provider}: ${gpi.toUpperCase()} triggered. Keystroke '${keys.keyTap.key +' '+ keys.keyTap.modifiers}' sent to window '${keys.app}'`);
+  } else {
+    console.log(`${provider}: ${gpi.toUpperCase()} triggered. Window '${keys.app}' not found.`);
+  }
+  
+};
 export default executeService;

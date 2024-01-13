@@ -8,7 +8,6 @@ const router = express.Router();
 router.get("/gpi/:gpi", async (request: Request, response: Response, next: NextFunction) => {
     try {
         const gpi = 'gpi' + request.params.gpi;
-        console.log(gpi)
         sendKeys(appConfig[gpi], gpi, "HTTP");
         response.sendStatus(200);
     }

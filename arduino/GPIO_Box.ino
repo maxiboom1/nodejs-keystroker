@@ -128,8 +128,8 @@ void sendHtmlResponse(EthernetClient& webClient) {
   webClient.println("</head>");
   webClient.println("<body>");
   webClient.println("<h1>GPIO Box Config Page</h1>");
-  webClient.println("<form action=\"/setHost\">");
   // GPIO Box ip
+  webClient.println("<form action=\"/setIP\">");
   webClient.print("GPIO Box IP Address: <input type=\"text\" name=\"ip\" value=\"");
   webClient.print(String(Ethernet.localIP()[0]));
   webClient.print(".");
@@ -141,15 +141,15 @@ void sendHtmlResponse(EthernetClient& webClient) {
   webClient.println("\">"); 
   webClient.println("<input type=\"submit\" value=\"Set GPIO Box\">");
   webClient.println("</form><br>");
-  webClient.println("<form action=\"/setMode\">");
   // Keystroker ip
+  webClient.println("<form action=\"/setHost\">");
   webClient.print("Keystroker IP Address: <input type=\"text\" name=\"hostIp\" value=\"");
   webClient.print(targetServer);
   webClient.println("\">");  webClient.println("<input type=\"submit\" value=\"Set keystroker\">");
   webClient.println("</form>");
   webClient.println("<br>");
-  webClient.println("<form action=\"/setIP\">");
   // Connection mode
+  webClient.println("<form action=\"/setMode\">");
   webClient.println("GPIO Box connection mode:");
   webClient.println("<select name=\"mode\" id=\"mode\">");
   webClient.print("<option value=\"serial\"");

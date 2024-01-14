@@ -5,7 +5,7 @@
 The primary goal is to develop a GPIO box that connects to GPIO providers, enabling the triggering of app focus and keystroke transmission. This setup involves a GPIO box and a Node.js application:
 
 ### Terms
-keystroker - A Node.js application running on a client PC, designed to receive GPI triggers.
+Keystroker - A Node.js application running on a client PC, designed to receive GPI triggers.
 GPIO Box - An Arduino Nano micro-controller.
 
 ### GPIO-BOX:

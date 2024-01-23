@@ -1,15 +1,26 @@
 # nodejs-keystroker 
 
-## Main Concept
+## General
 
 The primary goal is to develop a GPIO box that connects to GPIO providers, enabling the triggering of app focus and keystroke transmission. This setup involves a GPIO box and a Node.js application:
 
-### Terms
-**Keystroker** - A Node.js application running on a client PC, designed to receive GPI triggers.
+## Terms
+***Keystroker*** - A Node.js application running on a client PC, designed to receive GPI triggers.
 
-**GPIO Box** - An Arduino Nano micro-controller.
+***GPIO Box*** - An Arduino Nano micro-controller.
 
-### GPIO-BOX:
+## System description
+Upon a pin being shorted, the Arduino will send an HTTP request or a serial message. 
+
+Conversely, keystroker is designed to listen for both serial and HTTP messages. 
+
+Therefore, keystroker accommodates both connection types, while the GPIO Box must be set to one of these modes.
+
+Theoretically, the GPIO Box could trigger both serial and HTTP responses, but if the network destination is unavailable, it would temporarily halt the main process. This could be addressed by implementing asynchronous techniques, but it would complicate the project. 
+
+I've decided to leave it as is for now.
+
+## GPIO-BOX:
 
 For this project, I'm using an Arduino Nano ATMega328 paired with an ETH W5500 module. The Ethernet2 library is employed in the sketch.
 In general, it can:
@@ -22,7 +33,7 @@ In general, it can:
 ![Config Image](./docs/img/mockup.jpeg)
 
 
-### Nodejs application:
+## Nodejs application:
 
 NThe Node.js application operates on the client side, monitoring both serial and HTTP triggers to execute keystrokes.
 
@@ -34,18 +45,13 @@ For serial connection, the serial COM port can be configured.
 
 ![Config Image](./docs/img/keystroker_config.PNG)
 
-### Protocol
-Upon a pin being shorted, the Arduino will send an HTTP request or a serial message. 
-Conversely, keystroker is designed to listen for both serial and HTTP messages. 
-Therefore, keystroker accommodates both connection types, while the GPIO Box must be set to one of these modes. 
-Theoretically, the GPIO Box could trigger both serial and HTTP responses, but if the network destination is unavailable, it would temporarily halt the main process. This could be addressed by implementing asynchronous techniques, but it would complicate the project. 
-I've decided to leave it as is for now.
+## Protocol
 
-* HTTP Protocol Specification: The keystroker application listens on the route /api/gpi/{gpi_num}. The Arduino sketch is configured with 6 pins (D3-D8) to function as GPI. To activate the Arduino, one of D3-D8 pins need to be shorted to GND.
+* ***HTTP Protocol Specification:*** The keystroker application listens on the route /api/gpi/{gpi_num}. The Arduino sketch is configured with 6 pins (D3-D8) to function as GPI. To activate the Arduino, one of D3-D8 pins need to be shorted to GND.
 
-* Serial Protocol Specification: The keystroker's serial listener responds to the string "GPI {gpi_num} FIRED!".
+* ***Serial Protocol Specification:*** The keystroker's serial listener responds to the string "GPI {gpi_num} FIRED!".
 
-* Arduino pin Mapping:
+* ***Arduino pin Mapping:***
 D3 pin ==> ```/api/gpi/1```, and serial ```GPI 1 FIRED!```.
 D4 pin ==> ```/api/gpi/2```, and serial ```GPI 2 FIRED!```.
 D5 pin ==> ```/api/gpi/3```, and serial ```GPI 3 FIRED!```.

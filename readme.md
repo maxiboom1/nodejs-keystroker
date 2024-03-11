@@ -62,3 +62,13 @@ D8 pin ==> ```/api/gpi/6```, and serial ```GPI 6 FIRED!```.
 The reason for -2 shift is to create flat construction. 
 The Arduino internal wiring is out of end user scope.
 
+# Dependencies
+
+1. node-gyp
+
+```
+npm install -g node-gyp
+```
+
+2. Python 2.7
+3. Visual Studio 2013 (Express works fine)
